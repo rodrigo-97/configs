@@ -1,0 +1,15 @@
+server:
+  port: 3333
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: ms-users
+          uri: lb://ms-users
+          predicates:
+            - Path=/users/**
+        - id: ms-contracts
+          uri: lb://ms-contracts
+          predicates:
+            - Path=/contracts/**
